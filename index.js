@@ -10,13 +10,18 @@ var colors = [
 var squares =  document.querySelectorAll(".square");
 var pickedColor = colors[3];
 var colorDisplay = document.getElementById("colorDisplay");
+var messageDisplay = document.querySelector("#message");
 colorDisplay.textContent = pickedColor;
 
 squares.forEach(function(square, num){
 square.style.backgroundColor = colors[num];
 square.addEventListener("click",function(){
-    if(this.style.backgroundColor == pickedColor){
-        alert("You win");
+    var choosenColor = this.style.backgroundColor;
+    if(choosenColor == pickedColor){
+        messageDisplay.textContent = "Correct";
+    }else{
+        messageDisplay.textContent = "Try Again";
+        this.style.backgroundColor = "lightgoldenrodyellow";
     }
 });
 });
