@@ -19,9 +19,16 @@ square.addEventListener("click",function(){
     var choosenColor = this.style.backgroundColor;
     if(choosenColor == pickedColor){
         messageDisplay.textContent = "Correct";
+        changeColors(choosenColor);
     }else{
         messageDisplay.textContent = "Try Again";
         this.style.backgroundColor = "lightgoldenrodyellow";
     }
 });
 });
+
+function changeColors(color){
+    squares.forEach(function(square){
+        square.style.backgroundColor = color;
+    });
+}
