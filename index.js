@@ -6,6 +6,21 @@ var pickedColor = pickColor(colors);
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 colorDisplay.textContent = pickedColor;
+var h1 = document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
+
+
+resetButton.addEventListener("click", function(){
+    h1.style.backgroundColor = "lightgoldenrodyellow";
+    colors = generateRandomColors(6);
+    pickedColor = pickColor(colors);
+    colorDisplay.textContent = pickedColor;
+    messageDisplay.textContent = "";
+    
+    squares.forEach(function(square, num){
+        square.style.backgroundColor = colors[num];        
+    });
+});
 
 squares.forEach(function(square, num){
 square.style.backgroundColor = colors[num];
@@ -14,6 +29,7 @@ square.addEventListener("click",function(){
     if(choosenColor == pickedColor){
         messageDisplay.textContent = "Correct";
         changeColors(choosenColor);
+        h1.style.backgroundColor = choosenColor;
     }else{
         messageDisplay.textContent = "Try Again";
         this.style.backgroundColor = "lightgoldenrodyellow";

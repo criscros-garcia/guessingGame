@@ -19,3 +19,9 @@ body{
 h1{
     text-align: center;
 }
+
+#stripe{
+    height: 30px;
+    background-color: white;
+    text-align: center;
+}
