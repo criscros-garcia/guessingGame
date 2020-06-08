@@ -11,7 +11,7 @@ var resetButton = document.querySelector("#reset");
 
 
 resetButton.addEventListener("click", function(){
-    h1.style.backgroundColor = "lightgoldenrodyellow";
+    h1.style.backgroundColor = "steelblue";
     colors = generateRandomColors(6);
     pickedColor = pickColor(colors);
     colorDisplay.textContent = pickedColor;
