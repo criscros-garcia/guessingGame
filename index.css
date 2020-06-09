@@ -13,7 +13,7 @@ body{
     width: 30%;
     padding-bottom: 30%;
     margin: 1.6%;
-    background-color: steelblue;
+    background-color: #232323;
 }
 
 .selected{
@@ -46,7 +46,7 @@ h1{
     line-height: 1.1;
     font-weight: normal;
     color: white;
-    background-color: steelblue;
+    background-color: #232323;
     margin: 0;
     text-transform: uppercase;
     padding: 20px 0;

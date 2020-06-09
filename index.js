@@ -11,15 +11,18 @@ var resetButton = document.querySelector("#reset");
 
 
 resetButton.addEventListener("click", function(){
-    h1.style.backgroundColor = "steelblue";
+    h1.style.backgroundColor = "#232323";
     colors = generateRandomColors(6);
     pickedColor = pickColor(colors);
     colorDisplay.textContent = pickedColor;
     messageDisplay.textContent = "";
     
-    squares.forEach(function(square, num){
+    squares.forEach(function(square, num){ 
         square.style.backgroundColor = colors[num];        
     });
+
+    resetButton.textContent = "New Colors"
+
 });
 
 squares.forEach(function(square, num){
@@ -29,10 +32,11 @@ square.addEventListener("click",function(){
     if(choosenColor == pickedColor){
         messageDisplay.textContent = "Correct";
         changeColors(choosenColor);
+        resetButton.textContent = "Play Again?"
         h1.style.backgroundColor = choosenColor;
     }else{
         messageDisplay.textContent = "Try Again";
-        this.style.backgroundColor = "lightgoldenrodyellow";
+        this.style.backgroundColor = "#232323";
     }
 });
 });
