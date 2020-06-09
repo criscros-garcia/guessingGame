@@ -1,12 +1,14 @@
 body{
     background-color: #232323;
+    margin: 0;
+    font-family: "Montserrat","Avenir";
 }
 
 .container{
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .square{
@@ -14,6 +16,10 @@ body{
     padding-bottom: 30%;
     margin: 1.6%;
     background-color: #232323;
+    border-radius: 15%;
+    transition: background 1.0s;
+    -webkit-transition: background 1.0s;
+    -moz-transition: background 1.0s;;
 }
 
 .selected{
