@@ -8,59 +8,42 @@ var messageDisplay = document.querySelector("#message");
 colorDisplay.textContent = pickedColor;
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
-var easyBtn = document.querySelector("#easyBtn");
-var hardBtn = document.querySelector("#hardBtn");
+var modeBtns = document.querySelectorAll(".mode");
 
-easyBtn.addEventListener("click", function(){
-    easyBtn.classList.add("selected");
-    hardBtn.classList.remove("selected");
-    messageDisplay.textContent = "";
-    h1.style.backgroundColor = "#232323";
-    numSquares = 3;
-    colors = generateRandomColors(numSquares);
-    pickedColor = pickColor(colors);
-    colorDisplay.textContent = pickedColor;
-    squares.forEach(function(square, num){
-        if(colors[num]){
-            square.style.backgroundColor = colors[num];
-        }else{
-            square.style.display = "none";
-        }
+
+modeBtns.forEach(function(modeBtn){
+    modeBtn.addEventListener("click", function(){
+        modeBtns[0].classList.remove("selected");
+        modeBtns[1].classList.remove("selected");
+        modeBtn.classList.add("selected");
+        modeBtn.textContent === "Easy" ? numSquares=3 : numSquares=6; 
+        reset();
     });
 });
 
-hardBtn.addEventListener("click", function(){
-    hardBtn.classList.add("selected");
-    easyBtn.classList.remove("selected");
-    messageDisplay.textContent = "";
+function reset(){
     h1.style.backgroundColor = "#232323";
-    numSquares = 6;
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor(colors);
     colorDisplay.textContent = pickedColor;
+    messageDisplay.textContent = "";
+
     squares.forEach(function(square, num){
-        square.style.backgroundColor = colors[num];
-        square.style.display = "block";
-    });
-    
-});
+            if(colors[num]){
+                square.style.backgroundColor = colors[num];
+                square.style.display = "block";
 
-
-
-
-resetButton.addEventListener("click", function(){
-    h1.style.backgroundColor = "#232323";
-    colors = generateRandomColors(numSquares);
-    pickedColor = pickColor(colors);
-    colorDisplay.textContent = pickedColor;
-    messageDisplay.textContent = "";
-    
-    squares.forEach(function(square, num){ 
-        square.style.backgroundColor = colors[num];        
+            }else{
+                square.style.display = "none";
+            }
     });
 
     resetButton.textContent = "New Colors"
+}
 
+
+resetButton.addEventListener("click", function(){
+    reset();
 });
 
 squares.forEach(function(square, num){
